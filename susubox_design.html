@@ -1,0 +1,936 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SusuBox | Social Finance Made Simple</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d3daef",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#e9edff",
+                        "on-primary-fixed-variant": "#005232",
+                        "inverse-surface": "#293040",
+                        "secondary-container": "#9ef4d0",
+                        "tertiary-fixed-dim": "#ffb3b1",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#852229",
+                        "tertiary-fixed": "#ffdad8",
+                        "on-background": "#141b2b",
+                        "on-primary-fixed": "#002111",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#3d4a41",
+                        "secondary": "#026c50",
+                        "tertiary-container": "#e86c6e",
+                        "surface-tint": "#006d43",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#59de9b",
+                        "on-secondary-fixed": "#002116",
+                        "on-tertiary-fixed": "#410008",
+                        "primary-fixed": "#78fbb6",
+                        "surface-container-highest": "#dce2f7",
+                        "secondary-fixed": "#9ef4d0",
+                        "outline": "#6d7a70",
+                        "on-surface": "#141b2b",
+                        "background": "#f9f9ff",
+                        "outline-variant": "#bccabe",
+                        "surface": "#f9f9ff",
+                        "on-primary-container": "#00331d",
+                        "primary": "#006d43",
+                        "inverse-on-surface": "#edf0ff",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e1e8fd",
+                        "surface-variant": "#dce2f7",
+                        "inverse-primary": "#59de9b",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary": "#a5393e",
+                        "on-tertiary-container": "#5e0211",
+                        "on-secondary-fixed-variant": "#00513b",
+                        "secondary-fixed-dim": "#82d7b4",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#00a86b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#117255",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f1f3ff",
+                        "deep-emerald": "#003321"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "container-max-width": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-xl": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-xl": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.05em", "fontWeight": "800"}],
+                        "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px 0 rgba(0, 107, 79, 0.04);
+        }
+        .organic-blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            border-radius: 9999px;
+            opacity: 0.4;
+        }
+        .savio-shadow {
+            box-shadow: 0 24px 48px -12px rgba(0, 107, 79, 0.12);
+        }
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #F3CF65 50%, #A67C00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .floating-anim {
+            animation: floating 8s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(2deg); }
+        }
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(150% + 1.3px);
+            height: 60px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dark-hero-bg {
+            background-color: #002B1B;
+            background-image: radial-gradient(circle at 0% 0%, #004D31 0%, transparent 50%), 
+                              radial-gradient(circle at 100% 100%, #001A10 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-white text-on-background font-body-md overflow-x-hidden">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 transition-all duration-500 bg-transparent border-b border-white/10" id="main-nav">
+<div class="max-w-container-max-width mx-auto flex items-center justify-between px-margin-desktop py-5 transition-all duration-500" id="nav-content">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-extrabold text-white tracking-tighter" id="logo-text">SusuBox</span>
+</div>
+<div class="hidden xl:flex items-center gap-8">
+<a class="nav-link font-label-md text-label-md text-white font-bold border-b-2 border-primary-fixed pb-1" href="#">HOME</a>
+<a class="nav-link font-label-md text-label-md text-white/70 hover:text-white transition-colors font-semibold" href="#solutions">SOLUTIONS</a>
+<a class="nav-link font-label-md text-label-md text-white/70 hover:text-white transition-colors font-semibold" href="#how-it-works">HOW IT WORKS</a>
+<a class="nav-link font-label-md text-label-md text-white/70 hover:text-white transition-colors font-semibold" href="#plans">PLANS</a>
+<a class="nav-link font-label-md text-label-md text-white/70 hover:text-white transition-colors font-semibold" href="#partners">PARTNERS</a>
+<a class="nav-link font-label-md text-label-md text-white/70 hover:text-white transition-colors font-semibold" href="#testimonials">TESTIMONIAL</a>
+<a class="nav-link font-label-md text-label-md text-white/70 hover:text-white transition-colors font-semibold" href="#articles">ARTICLES</a>
+<a class="nav-link font-label-md text-label-md text-white/70 hover:text-white transition-colors font-semibold" href="#contact">CONTACT US</a>
+</div>
+<div class="flex items-center gap-4">
+
+
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-0 overflow-hidden dark-hero-bg">
+<div class="organic-blob w-[600px] h-[600px] bg-primary/20 -top-20 -left-20"></div>
+<div class="max-w-container-max-width mx-auto px-margin-desktop w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center pt-24">
+<div class="space-y-10">
+<div class="inline-flex items-center gap-3 px-5 py-1.5 rounded-full bg-white/5 border border-white/10">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-fixed animate-pulse"></span>
+<span class="text-primary-fixed font-label-sm uppercase tracking-[0.15em] font-bold">The Next-Gen Financial Ecosystem</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl leading-[1.1] tracking-tight text-white">
+                Social finance made <span class="gold-text-gradient italic font-black">Simple,</span><br>
+<span class="text-white/90">save together,</span><br>
+<span class="text-white/90">thrive together.</span>
+</h1>
+<p class="text-body-lg text-white/70 max-w-lg leading-relaxed">
+                A community saving app that manages your savings, groups and network. Transforming a traditional saving model into a digital, effortless experience that enforces trust with communities.
+            </p>
+<div class="flex flex-wrap gap-5 pt-2">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-2xl font-label-md font-bold hover:savio-shadow transition-all flex items-center gap-3 group shadow-2xl">
+                    Get Started Free
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="bg-white/10 text-white px-10 py-5 rounded-2xl font-label-md font-bold border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm">View Demo</button>
+</div>
+</div>
+<div class="relative h-[650px] lg:h-[750px] flex items-center justify-center">
+<div class="relative w-full h-full flex items-center justify-center gap-8 pt-10">
+<!-- Left Phone -->
+<div class="relative w-[240px] floating-anim z-10" style="animation-delay: -2s;">
+<div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[480px] w-[240px] shadow-xl">
+<div class="rounded-[2rem] overflow-hidden w-full h-full bg-white">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu0kBfizZK6HSPOpFssEVIP5FPOtyoKRIeCwW4bCQBMoIl0gO_hwQ136H6CRjhlXhdf_DkmJAEgj2Z0wodaLQigWvt1MS8kJkwJcpzZeBbOZ5Z7NbHzUQH8AN4eyzZ8grxiHZE3g066ZDcTrqkqEIukXfI10A-5DiNSKWl9mjkVXbrdeaI450ewXNXngYJ4CXZOsNXZBBdywi-POhJqWFnc8Rvct0fw8baBy7HLlf5B5THm7G7E8gV-UKXocSOWOuKtIvY7qEuDLmK">
+</div>
+</div>
+</div>
+<!-- Center Phone -->
+<div class="relative w-[260px] floating-anim z-30" style="animation-delay: -1s;">
+<div class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[520px] w-[260px] shadow-2xl">
+<div class="rounded-[2rem] overflow-hidden w-full h-full bg-white">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9V6JXL_z4eNYkuSiSK6wtSraKcypcQfw_q8neaolop-4FPSDEDzd1Ra83HfksOx4bYOAD4RBQOnUMlNOaA1nRzVn16DYnaqCpePK3stZ4CJrE__wPq1McflPjVFEC__N-WCg2VhKG0jDI0MfZglJfI2wSM9OsmZ636Eo-VyV9NSbPRy-d1h3o-IRbS0ePMnog7sSW2tHpOE-lK6cmN8gXEWkGpP99DaDktl--2ALmRDm7wrOfuglAbw1j-5CrTX7XR47w8Te_cVuo">
+</div>
+</div>
+</div>
+<!-- Right Phone -->
+<div class="relative w-[240px] floating-anim z-20" style="animation-delay: -3s;">
+<div class="relative mx-auto border-gray-800 bg-gray-800 border-[12px] rounded-[2.5rem] h-[480px] w-[240px] shadow-xl">
+<div class="rounded-[2rem] overflow-hidden w-full h-full bg-white">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxC15q8a2jTN7jR42ldULJYQXTEyE6el6c_WY477QyhjGkGopmEZ8D5uGkWpLTrTwUFsLTb3wCz71Kfunz8TM9K5B37CRHNoTvgHb73oWQcyGh1I_qrxy4qJ0wqsTOf5Tgu3oSoZyHBIHW-i_auI2YfOZjynfr67f4Dlz_YpkscNCYfNTeUP1yNvX9EuXw09btmDO25aV-BeGouTrb3KfcsEA5kl27EwyqfVhWRwuFMDsYXxLQajvKV8eLfKChFCVB5pZbWE6Zddz2">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="wave-divider">
+<svg data-name="Layer 1" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+<path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#F9F9FF"></path>
+</svg>
+</div>
+</section><section class="py-32 bg-white overflow-hidden">
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-xl text-headline-xl text-primary">We've all been there.</h2>
+<p class="text-on-surface-variant text-body-lg max-w-2xl mx-auto">Tracking money between friends is awkward. It shouldn't disrupt or end relationships.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Left Column: Image -->
+<div class="relative">
+<div class="rounded-[2.5rem] overflow-hidden shadow-xl">
+          https://lh3.googleusercontent.com/aida-public/AB6AXuBOeXQWuy1COG1OCEbMV4u--T6UiUl5s5VUfUOKzwXMcTNaNty1-VDBNEo1AvtTVvul4HfhE4j9NO-vnPtJ17ipsM5vRud4R0cdltssZB01KTutJZ1OTB-K3Exlh4FQ-hUvo55dnxIpBZhnXREaALxpHonvC9U0BoPbblKuSRPElNdhz6ewPs3-m50LV-lR1ZIjtYYVZjHo3Yppo1zBR5rMerbyrpl6yRZdNZ4nYnyh4pUNq-iukVkE6u8_vcvQUXeycayBXheA_ivG
+        </div>
+</div>
+<!-- Right Column: Chat Mockup -->
+<div class="space-y-6">
+<div class="glass-card p-8 rounded-[2.5rem] bg-white shadow-sm border border-outline-variant/10">
+<p class="text-label-sm text-on-surface-variant uppercase tracking-widest font-black mb-6">Group Chat</p>
+<div class="space-y-4">
+<div class="flex justify-start">
+<div class="bg-surface-container-low px-6 py-3 rounded-2xl rounded-bl-none max-w-[80%] text-on-surface font-medium">
+                Did everyone contribute?
+              </div>
+</div>
+<div class="flex justify-end">
+<div class="bg-primary text-on-primary px-6 py-3 rounded-2xl rounded-br-none max-w-[80%] font-medium shadow-md">
+                I can't find the payment.
+              </div>
+</div>
+<div class="flex justify-start">
+<div class="bg-surface-container-low px-6 py-3 rounded-2xl rounded-bl-none max-w-[80%] text-on-surface font-medium">
+                Who's receiving the payout?
+              </div>
+</div>
+<div class="flex justify-start">
+<div class="bg-surface-container-low px-6 py-3 rounded-2xl rounded-bl-none max-w-[80%] text-on-surface font-medium">
+                Can someone send the updated spreadsheet?
+              </div>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<p class="font-headline-md text-headline-md gold-text-gradient italic">Sound familiar?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Advantages -->
+<section class="py-32 bg-white">
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<div class="text-center mb-24 space-y-6">
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Why Communities Trust SusuBox</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto text-body-lg">Engineered for security, built for social prosperity. Our features ensure every member succeeds.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Card 1 -->
+<div class="glass-card p-10 rounded-[2.5rem] group hover:-translate-y-3 transition-all duration-500 bg-white shadow-sm">
+<div class="w-20 h-20 bg-primary/5 rounded-full flex items-center justify-center mb-10 text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-4xl">monitoring</span>
+</div>
+<h3 class="font-headline-md mb-5">REAL TIME TRACKING (FULL TRANSPARENCY)</h3>
+<p class="text-on-surface-variant leading-relaxed">See exact statistics of what happening in your groups. Track contributions, payouts and progress at a glance.</p>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-10 rounded-[2.5rem] group hover:-translate-y-3 transition-all duration-500 bg-white shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-[#D4AF37]/10 rounded-bl-full"></div>
+<div class="w-20 h-20 bg-secondary/5 rounded-full flex items-center justify-center mb-10 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined text-4xl">verified_user</span>
+</div>
+<h3 class="font-headline-md mb-5 gold-text-gradient">BUILD TRUST NETWORK (REPUTATION SCORE)</h3>
+<p class="text-on-surface-variant leading-relaxed">Turn social activity into a powerful tool for building credit, helping you strengthen relationships and create meaningful impact.</p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-10 rounded-[2.5rem] group hover:-translate-y-3 transition-all duration-500 bg-white shadow-sm">
+<div class="w-20 h-20 bg-primary-container/10 rounded-full flex items-center justify-center mb-10 text-primary-container group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-4xl">payments</span>
+</div>
+<h3 class="font-headline-md mb-5">AUTOMATED PAYOUTS (RELIABLE 24/7)</h3>
+<p class="text-on-surface-variant leading-relaxed">Payouts are sent automatically when cycle contributions are cleared. No chasing, No Drama.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solutions & Features -->
+<section class="py-32 relative overflow-hidden bg-surface-container-low" id="solutions">
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="relative group">
+<div class="absolute -inset-16 bg-primary/5 rounded-full blur-[120px] -z-10 group-hover:scale-110 transition-transform duration-700"></div>
+<div class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-2xl">
+<div class="rounded-[2rem] overflow-hidden w-full h-full bg-white">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMI5EbUkEwkRlpOotJww8f2op9bE9DH7RrPYS9Tyekvp_vfFW-kf0Q3Tu74eq2poL9pgWWwKAYRCjhryFJIE9O09Y3jT59vhP5GRMk6AWWWYJQ8muOjgnp9JBFwDdnJIMKwWlZaorsy-Ig4QFgamquy-m5QcDj7EDi3wTj912DKlsrAya7rfdw5L5lc4a8ZiBSNBtGdU0CY43mcFEfqhTbS_8belLkK5N9fxijChkuactvTs2rRlM0uvm39FZ1vO1l0xedS5i0YDKM">
+</div>
+</div>
+<div class="absolute -top-6 -right-10 hidden lg:block animate-bounce" style="animation-duration: 4s;">
+<div class="glass-card px-8 py-5 rounded-3xl shadow-2xl border border-white/50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant font-bold">Annual Yield</p>
+<p class="text-headline-md font-black text-primary leading-none">+12.4%</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-12">
+<div class="space-y-4">
+<h2 class="font-headline-xl text-headline-xl">Powerful Features for <br><span class="text-primary">Financial Freedom</span></h2>
+<p class="text-on-surface-variant text-body-lg">Every tool you need to manage collective wealth successfully.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p class="font-bold">Multiple Saving Vaults</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p class="font-bold">Real Time Pool Statistics</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p class="font-bold">Automatic Payouts &amp; Contributions</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p class="font-bold">Easy payment options with MOMO</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p class="font-bold">Seamless Verification Process</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p class="font-bold">Join Pools Easily</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<p class="font-bold">Invite friends, gain reputation</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="py-32 bg-white">
+  <div class="max-w-container-max-width mx-auto px-margin-desktop">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+      <!-- Left Column: Heading and Image Grid -->
+      <div class="space-y-12">
+        <div class="space-y-4">
+          <p class="text-label-sm uppercase tracking-[0.2em] font-black text-[#D4AF37]">NOT JUST ANOTHER APP.</p>
+          <h2 class="font-headline-xl text-headline-xl text-[#003321] leading-tight">Built for real savings circles.</h2>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="aspect-square rounded-3xl bg-gradient-to-br from-[#006d43]/40 to-[#59de9b]/20"></div>
+          <div class="aspect-square rounded-3xl bg-gradient-to-br from-[#59de9b]/40 to-[#9ef4d0]/20"></div>
+          <div class="aspect-square rounded-3xl bg-gradient-to-br from-[#D4AF37]/40 to-[#F3CF65]/20"></div>
+          <div class="aspect-square rounded-3xl bg-gradient-to-br from-[#003321]/40 to-[#006d43]/20"></div>
+        </div>
+      </div>
+      <!-- Right Column: Feature Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Auto-Pay -->
+        <div class="space-y-4 p-8 rounded-[2rem] bg-surface-container-lowest border border-outline-variant/5 hover:savio-shadow transition-all">
+          <div class="w-12 h-12 bg-secondary-container/30 rounded-2xl flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined">schedule_send</span>
+          </div>
+          <h4 class="font-bold text-xl text-on-surface">Auto-Pay</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Set it once. Contributions happen on schedule, automatically.</p>
+        </div>
+        <!-- Smart Reminders -->
+        <div class="space-y-4 p-8 rounded-[2rem] bg-surface-container-lowest border border-outline-variant/5 hover:savio-shadow transition-all">
+          <div class="w-12 h-12 bg-secondary-container/30 rounded-2xl flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined">notifications_active</span>
+          </div>
+          <h4 class="font-bold text-xl text-on-surface">Smart Reminders</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Get notified before payments, contributions, and payouts.</p>
+        </div>
+        <!-- Shared Slots -->
+        <div class="space-y-4 p-8 rounded-[2rem] bg-surface-container-lowest border border-outline-variant/5 hover:savio-shadow transition-all">
+          <div class="w-12 h-12 bg-secondary-container/30 rounded-2xl flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined">group_work</span>
+          </div>
+          <h4 class="font-bold text-xl text-on-surface">Shared Slots</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Split a payout position with another member. Two people, one slot, shared payout.</p>
+        </div>
+        <!-- Position Swap -->
+        <div class="space-y-4 p-8 rounded-[2rem] bg-surface-container-lowest border border-outline-variant/5 hover:savio-shadow transition-all">
+          <div class="w-12 h-12 bg-secondary-container/30 rounded-2xl flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined">swap_horiz</span>
+          </div>
+          <h4 class="font-bold text-xl text-on-surface">Position Swap</h4>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Need your payout earlier? Request a swap with another member easily.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-16 text-center">
+      <a href="#" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+        See all features
+        <span class="material-symbols-outlined">chevron_right</span>
+      </a>
+    </div>
+  </div>
+</section><section class="py-32 bg-white relative overflow-hidden">
+<div class="organic-blob w-[500px] h-[500px] bg-primary/5 -right-20 -top-20 blur-[120px]"></div>
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="space-y-12">
+<div class="space-y-6">
+<h2 class="font-headline-xl text-headline-xl text-on-surface">
+            Your Path to <br><span class="text-primary">Prosperity</span>
+</h2>
+<p class="text-on-surface-variant text-body-lg max-w-lg">
+            We've simplified the journey to financial freedom into three effortless steps.
+          </p>
+</div>
+<div class="space-y-10">
+<div class="flex gap-6 group">
+<div class="flex-shrink-0 w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center font-black text-2xl shadow-lg group-hover:scale-110 transition-transform">
+              1
+            </div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-xl">Create Your Profile</h4>
+<p class="text-on-surface-variant leading-relaxed">Download the app and set up your secure account in under 2 minutes.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="flex-shrink-0 w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center font-black text-2xl shadow-lg group-hover:scale-110 transition-transform">
+              2
+            </div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-xl">Join or Create a Pool</h4>
+<p class="text-on-surface-variant leading-relaxed">Connect with trusted friends or join verified public savings circles.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="flex-shrink-0 w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center font-black text-2xl shadow-lg group-hover:scale-110 transition-transform">
+              3
+            </div>
+<div class="space-y-2">
+<h4 class="font-headline-md text-xl">Watch Your Wealth Grow</h4>
+<p class="text-on-surface-variant leading-relaxed">Automated contributions and payouts ensure your goals are always met.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative flex justify-center">
+<div class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[3rem] h-[650px] w-[320px] shadow-2xl floating-anim">
+<div class="rounded-[2.5rem] overflow-hidden w-full h-full bg-white">
+<img alt="App Dashboard" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZylr6XOeRgf75cYDdYi56yHD0BiH0LXynYOblY2buNPy8V_Ue1jyfen4Ipk5J5S1WtTUQPS6HI6ntoo4Ki5ZglSKIJeuGRmKRdAJsF7P7xQRmMM1yHb3yJDwqGu18TE1WPNUcAJTLgY3oNAvOh3GZwnOVYbyCK92w8zXKgJ9ZSmew_JPAjwq1hYOS-NsuqrG1wc0ZCchYfRPhMRhuVJcl0_7kwMUfSlVFpYH3gztQNP7g0VrIwqwr0v_zwXlkM1wB3Z8V826tyz_n">
+</div>
+</div>
+<div class="absolute -bottom-10 -left-10 bg-primary/10 w-40 h-40 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Plans -->
+<section class="py-32 bg-white" id="plans">
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<div class="text-center mb-24">
+<h2 class="font-headline-xl text-headline-xl mb-4">Pricing Plans</h2>
+<p class="text-on-surface-variant text-body-lg">Choose the tier that fits your group's saving goals.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Silver -->
+<div class="glass-card p-12 rounded-[3rem] border border-outline-variant/10 hover:border-primary/30 transition-all flex flex-col">
+<div class="mb-8">
+<h4 class="font-black text-xl mb-2">SILVER</h4>
+<p class="text-primary font-bold">Standard Entry</p>
+</div>
+<div class="mb-8 flex items-baseline gap-2">
+<span class="text-4xl font-black">Gh 50</span>
+<span class="text-on-surface-variant font-medium">limit/person</span>
+</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> 2 pool groups</li>
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> 3 Personal Vaults</li>
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> Automation</li>
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> Smart Reminders</li>
+</ul>
+<button class="w-full py-4 rounded-2xl bg-surface-container font-bold hover:bg-primary hover:text-white transition-all">Get Started</button>
+</div>
+<!-- Gold -->
+<div class="glass-card p-12 rounded-[3rem] border-2 border-primary bg-white shadow-2xl scale-105 relative z-10 flex flex-col">
+<div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-1.5 rounded-full text-xs font-black tracking-widest uppercase">Most Popular</div>
+<div class="mb-8">
+<h4 class="font-black text-xl mb-2">GOLD</h4>
+<p class="text-primary font-bold">The Optimal Choice</p>
+</div>
+<div class="mb-8 flex items-baseline gap-2">
+<span class="text-4xl font-black">Gh 100</span>
+<span class="text-on-surface-variant font-medium">limit/person</span>
+</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> 3 pool groups</li>
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> 5 Personal Vaults</li>
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> Automation</li>
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> Smart Reminders</li>
+<li class="flex items-center gap-3 font-medium text-primary font-bold"><span class="material-symbols-outlined text-sm">check</span> Early Payout Bid</li>
+</ul>
+<button class="w-full py-4 rounded-2xl bg-primary text-white font-bold hover:brightness-110 transition-all shadow-lg">Get Started</button>
+</div>
+<!-- Platinum -->
+<div class="glass-card p-12 rounded-[3rem] border border-outline-variant/10 hover:border-primary/30 transition-all flex flex-col">
+<div class="mb-8">
+<h4 class="font-black text-xl mb-2 text-primary">PLATINUM</h4>
+<p class="text-primary font-bold">Elite Engineering</p>
+</div>
+<div class="mb-8 flex items-baseline gap-2">
+<span class="text-4xl font-black">Gh 500</span>
+<span class="text-on-surface-variant font-medium">limit/person</span>
+</div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> 5 pool groups</li>
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> 10 Personal Vaults</li>
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> Automation/Reminders</li>
+<li class="flex items-center gap-3 font-medium"><span class="material-symbols-outlined text-primary text-sm">check</span> Pool Moderation</li>
+<li class="flex items-center gap-3 font-medium font-bold"><span class="material-symbols-outlined text-primary text-sm">check</span> Early Payout Bid</li>
+</ul>
+<button class="w-full py-4 rounded-2xl bg-surface-container font-bold hover:bg-primary hover:text-white transition-all">Get Started</button>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-32 bg-surface-container-low" id="how-it-works">
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<div class="text-center mb-24">
+<h2 class="font-headline-xl text-headline-xl mb-4">How It Works</h2>
+<p class="text-on-surface-variant text-body-lg">Seamlessly transition to digital social finance.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Part A -->
+<div class="bg-white p-10 rounded-[3rem] shadow-sm space-y-8">
+<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-black text-xl">A</div>
+<h4 class="font-headline-md">Account Setup</h4>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">1</span>
+<p class="font-medium text-on-surface-variant">Register account (phone number)</p>
+</li>
+<li class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">2</span>
+<p class="font-medium text-on-surface-variant">Verify identity (KYC &lt; 2 mins)</p>
+</li>
+<li class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">3</span>
+<p class="font-medium text-on-surface-variant">Follow friends and family</p>
+</li>
+</ul>
+</div>
+<!-- Part B -->
+<div class="bg-primary p-10 rounded-[3rem] shadow-xl space-y-8 text-on-primary">
+<div class="w-16 h-16 bg-white text-primary rounded-full flex items-center justify-center font-black text-xl">B</div>
+<h4 class="font-headline-md">ROSCA Pools</h4>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-xs">1</span>
+<p class="font-medium">Discover available pools</p>
+</li>
+<li class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-xs">2</span>
+<p class="font-medium">Join pool (share link)</p>
+</li>
+<li class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-xs">3</span>
+<p class="font-medium">Start saving (contributions)</p>
+</li>
+<li class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-xs">4</span>
+<p class="font-medium">Collect payout (rotational/automatic)</p>
+</li>
+</ul>
+</div>
+<!-- Part C -->
+<div class="bg-white p-10 rounded-[3rem] shadow-sm space-y-8">
+<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-black text-xl">C</div>
+<h4 class="font-headline-md">Personal Savings</h4>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">1</span>
+<div>
+<p class="font-bold">Time-lock save</p>
+<p class="text-sm text-on-surface-variant">10 to 1,000 days duration</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">2</span>
+<div>
+<p class="font-bold">Target save</p>
+<p class="text-sm text-on-surface-variant">Daily/Weekly/Monthly goals</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners Wall -->
+<section class="py-24 bg-white" id="partners">
+
+</section>
+<!-- Testimonials -->
+<section class="py-32 bg-[#F9F9FF]" id="testimonials">
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<h2 class="font-headline-xl text-headline-xl text-center mb-24">Voices from the Community</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="glass-card p-12 rounded-[3rem] bg-white border border-outline-variant/5 shadow-sm">
+<div class="flex gap-1 text-secondary mb-8">
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant mb-10 text-body-lg leading-relaxed italic">"SusuBox is the most robust implementation of ROSCA I've seen in any fintech app. The automation layer is flawless."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-dim"></div>
+<div>
+<p class="font-black text-on-surface">Alex Thompson</p>
+<p class="text-label-sm text-on-surface-variant font-bold">Fintech Consultant</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="glass-card p-12 rounded-[3rem] bg-white border-2 border-primary relative shadow-xl scale-105 z-10">
+<div class="absolute -top-4 right-10">
+<span class="bg-primary text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Featured Review</span>
+</div>
+<div class="flex gap-1 text-secondary mb-8">
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant mb-10 text-body-lg leading-relaxed italic">"The reputation score system is revolutionary. It finally brings the trust of village saving groups to the global digital stage."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-dim"></div>
+<div>
+<p class="font-black text-on-surface">Sarah Mensah</p>
+<p class="text-label-sm text-on-surface-variant font-bold">Venture Partner</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="glass-card p-12 rounded-[3rem] bg-white border border-outline-variant/5 shadow-sm">
+<div class="flex gap-1 text-secondary mb-8">
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined font-black" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant mb-10 text-body-lg leading-relaxed italic">"Managing family savings used to be a headache. Now, SusuBox handles the reminders and payouts automatically. Incredible."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-dim"></div>
+<div>
+<p class="font-black text-on-surface">Dr. James Boateng</p>
+<p class="text-label-sm text-on-surface-variant font-bold">Community Advocate</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Articles -->
+<section class="py-32 bg-white" id="articles">
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-24 gap-8">
+<div class="text-center md:text-left">
+<h2 class="font-headline-xl text-headline-xl mb-4">Financial Growth Insights</h2>
+<p class="text-on-surface-variant text-body-lg">Expert articles on ROSCA and collective wealth.</p>
+</div>
+<button class="bg-primary/5 text-primary px-8 py-4 rounded-2xl font-bold flex items-center gap-3 group hover:bg-primary hover:text-white transition-all">
+                View All Articles
+                <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">trending_flat</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Article 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-[2rem] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9uX9LWF8kD5jvHfS5IFr5lbOP6zJHoIOzpCVEIqtoMZBsXVhpvaYa-vr89fUFo73dJObOV7jAGx9lBMaSywcc1Xf4fG8cj2h80T7aNBPA2PXq84Qb-mkhAJTlyKbrInFz5EiGFsDscLm0KT17-85TuiJ1-MHGz9It43v9AcA2Q-TZsbdcDWpb12Xr1ajmaORCSTUdbK869oysE2bvHfUzKRLTC6BxSWSDG7XdIOCQeMj-WWZMnnTwRNxyqKiMzJ0-5g69gjWRMjxy">
+</div>
+<p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Strategy</p>
+<h4 class="font-black text-lg leading-tight group-hover:text-primary transition-colors">The Evolution of ROSCA in the Digital Age</h4>
+</div>
+<!-- Article 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-[2rem] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcwZ_Rep4i-aQPhlIIaYkPjPBzyDwjSJ4rs3n77aMBHSFbpQV8ieSlq4VSWFPj-4aSWwZZdYqRkXW3DHgG1q1LyUR-VzTJpHcL6Ib1Y2JzZE04ApiW5otNHgjTXLn3qhivtE7Y6OYPU7VgJCLjyHw8d7FWQWlI_CPhhkfUyUYeu8qVSAo9o0eoZyvOzX3hq40D6LiCGu6XYhyr6FdriVl-0MAu48Z4U2lEjMNgjSPsLpO3TCVa4rckNr6jJd5H_TtpRwm49j8R1uwI">
+</div>
+<p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Security</p>
+<h4 class="font-black text-lg leading-tight group-hover:text-primary transition-colors">How Reputation Scores Prevent Default Risks</h4>
+</div>
+<!-- Article 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-[2rem] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlcPECXZbFjOu3PPjQ170FWt5g1Mm2SfT42aMlCcOqG4i28l_Z01SAQ95QA2L1Rk23BLtDscssMWhLhCEch3RytNxSInhcEeaNzJzQAgb1QL8c9ldAuS6zGtSZjNrOtd9nkJEf0CFKjkymSBCK_MFao2xyMZa5tN-Nnw4TfGZDwvtpg7OwxLj2FVzsfzgLMMClxz2F32H2ISwdw2WwJ6vNi07oUKysMWu2O9kH9ElF9gTVdcqLEco8j0knvLaPsvVH3O7XA29kwIwM">
+</div>
+<p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Community</p>
+<h4 class="font-black text-lg leading-tight group-hover:text-primary transition-colors">Building Trust-Based Networks Online</h4>
+</div>
+<!-- Article 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-[2rem] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOm0lNvbVe8_IFWahMw17-2ncLtldbYO8yArEpIDPw8vDvf_3eX0KrHUkMs4UJaqdZOfykWI8BKcIvL1veG9X192QRiJ2x-s2_g6xP7I1HbDrabaJFJN04_MRaF3tuWQa6SSrnQ0B2fgrFMAGIJhi4NXEMeBNHOWYdC1mdEzOxRJI3O3ahpX85tJgTwVbLSscoz2qFV04NFbLBVZ1gHnXFVc0ED0VXUeW8iZYSIvQ31poS1LtyupHFxy2BjuLDYNFAA_Ia7o1ecHI">
+</div>
+<p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Finance</p>
+<h4 class="font-black text-lg leading-tight group-hover:text-primary transition-colors">ROSCA vs Traditional Bank Loans</h4>
+</div>
+<!-- More Articles -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-[2rem] overflow-hidden mb-6 bg-surface-container">
+<div class="w-full h-full bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">savings</span>
+</div>
+</div>
+<p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Tips</p>
+<h4 class="font-black text-lg leading-tight group-hover:text-primary transition-colors">Maximizing Returns in Your Savings Circle</h4>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-[2rem] overflow-hidden mb-6 bg-surface-container">
+<div class="w-full h-full bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">lock</span>
+</div>
+</div>
+<p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Guides</p>
+<h4 class="font-black text-lg leading-tight group-hover:text-primary transition-colors">The Benefits of Time-Lock Savings</h4>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-[2rem] overflow-hidden mb-6 bg-surface-container">
+<div class="w-full h-full bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">group_add</span>
+</div>
+</div>
+<p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Growth</p>
+<h4 class="font-black text-lg leading-tight group-hover:text-primary transition-colors">How to Scale Your Community Saving Group</h4>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-[2rem] overflow-hidden mb-6 bg-surface-container">
+<div class="w-full h-full bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">verified</span>
+</div>
+</div>
+<p class="text-primary font-bold text-xs uppercase tracking-widest mb-3">Security</p>
+<h4 class="font-black text-lg leading-tight group-hover:text-primary transition-colors">KYC Verification: Protecting Your Pool</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form -->
+<section class="py-32 bg-[#F9F9FF]" id="contact">
+<div class="max-w-container-max-width mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="space-y-10">
+<h2 class="font-headline-xl text-headline-xl">Join the Future of <br>Social Finance</h2>
+<p class="text-on-surface-variant text-body-lg leading-relaxed">Have questions about setting up a pool for your organization? Our experts are here to help.</p>
+<div class="space-y-8">
+<div class="flex items-center gap-6 group">
+<div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-3xl">mail</span>
+</div>
+<div>
+<p class="font-black text-on-surface">Email Us</p>
+<p class="text-on-surface-variant font-medium">partnerships@susubox.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-card p-12 rounded-[4rem] bg-white shadow-2xl relative">
+<form class="space-y-8">
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-3">
+<label class="text-label-sm text-on-surface-variant uppercase tracking-widest font-black">First Name</label>
+<input class="w-full bg-surface-container-low border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary outline-none transition-all font-medium" placeholder="John" type="text">
+</div>
+<div class="space-y-3">
+<label class="text-label-sm text-on-surface-variant uppercase tracking-widest font-black">Last Name</label>
+<input class="w-full bg-surface-container-low border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary outline-none transition-all font-medium" placeholder="Doe" type="text">
+</div>
+</div>
+<div class="space-y-3">
+<label class="text-label-sm text-on-surface-variant uppercase tracking-widest font-black">Work Email</label>
+<input class="w-full bg-surface-container-low border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary outline-none transition-all font-medium" placeholder="john@company.com" type="email">
+</div>
+<div class="space-y-3">
+<label class="text-label-sm text-on-surface-variant uppercase tracking-widest font-black">Message</label>
+<textarea class="w-full bg-surface-container-low border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary outline-none transition-all font-medium" placeholder="How can we help your community?" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-5 rounded-2xl font-black text-headline-md hover:savio-shadow transition-all shadow-lg">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<div class="glass-card p-12 rounded-[3rem] bg-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-12">
+<div class="space-y-4 max-w-xl">
+<h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-on-surface">Stay ahead of the curve</h2>
+<p class="text-on-surface-variant text-body-lg">Subscribe to our newsletter for exclusive insights on community finance, ROSCA strategies, and collective wealth building.</p>
+</div>
+<div class="w-full lg:w-auto">
+<form class="flex flex-col sm:flex-row gap-4 w-full lg:min-w-[400px]">
+<input class="flex-grow bg-surface-container-lowest border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary outline-none transition-all font-medium" placeholder="Enter your email" required="" type="email">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-2xl font-black hover:savio-shadow transition-all shadow-lg whitespace-nowrap" type="submit">Subscribe</button>
+</form>
+<p class="text-xs text-on-surface-variant mt-4 font-medium">Join 5,000+ community leaders. No spam, ever.</p>
+</div>
+</div>
+</div>
+</section><footer class="bg-white border-t border-outline-variant/10 py-32">
+<div class="max-w-container-max-width mx-auto px-margin-desktop">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-16 mb-24">
+<div class="col-span-2 space-y-8">
+<span class="font-headline-md text-headline-md font-black text-primary tracking-tighter">SusuBox</span>
+<p class="text-on-surface-variant max-w-xs text-body-lg font-medium leading-relaxed">Built for elite financial engineering. Save Together. Thrive Together.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">public</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">podcasts</span>
+</div>
+</div>
+</div>
+<div>
+<h5 class="font-black text-on-surface mb-8 uppercase tracking-widest text-label-sm">Product</h5>
+<ul class="space-y-5 text-on-surface-variant font-bold">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Solutions</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Pricing Plans</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Personal Vaults</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-black text-on-surface mb-8 uppercase tracking-widest text-label-sm">Resources</h5>
+<ul class="space-y-5 text-on-surface-variant font-bold">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Articles</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-black text-on-surface mb-8 uppercase tracking-widest text-label-sm">Company</h5>
+<ul class="space-y-5 text-on-surface-variant font-bold">
+<li class=""><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Legal</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-12 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-8 text-label-md text-on-surface-variant font-bold">
+<p class="">© 2024 SusuBox. Built for elite financial engineering.</p>
+<div class="flex gap-12">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('main-nav');
+        const logoText = document.getElementById('logo-text');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        if (window.scrollY > 100) {
+            nav.classList.add('bg-white/95', 'shadow-md', 'backdrop-blur-md');
+            nav.classList.remove('bg-transparent');
+            logoText.classList.replace('text-white', 'text-primary');
+            navLinks.forEach(link => {
+                if (link.classList.contains('text-white/70')) {
+                    link.classList.replace('text-white/70', 'text-on-surface-variant');
+                } else if (link.classList.contains('text-white')) {
+                    link.classList.replace('text-white', 'text-on-surface');
+                }
+            });
+        } else {
+            nav.classList.remove('bg-white/95', 'shadow-md', 'backdrop-blur-md');
+            nav.classList.add('bg-transparent');
+            logoText.classList.replace('text-primary', 'text-white');
+            navLinks.forEach(link => {
+                if (link.classList.contains('text-on-surface-variant')) {
+                    link.classList.replace('text-on-surface-variant', 'text-white/70');
+                } else if (link.classList.contains('text-on-surface')) {
+                    link.classList.replace('text-on-surface', 'text-white');
+                }
+            });
+        }
+    });
+</script>
+
+
+
+
+</body></html>
