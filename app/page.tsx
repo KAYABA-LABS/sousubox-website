@@ -10,6 +10,7 @@ import Testimonials from "./components/Testimonials";
 import Insights from "./components/Insights";
 import Contact from "./components/Contact";
 import Newsletter from "./components/Newsletter";
+import JoinSusu from "./components/JoinSusu";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero />
       <Problem />
       <Advantages />
+      <JoinSusu />
       <Features />
       <Journey />
       <HowItWorks />

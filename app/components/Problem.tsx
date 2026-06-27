@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Problem() {
   return (
     <section className="py-32 bg-white overflow-hidden">
@@ -7,23 +9,34 @@ export default function Problem() {
             We've all been there.
           </h2>
           <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto font-body">
-            Tracking money between friends is awkward. It shouldn't disrupt or end relationships.
+            Tracking money between friends is awkward. It shouldn't disrupt or
+            end relationships.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column: Image */}
           <div className="relative flex justify-center">
             <div className="rounded-[2.5rem] overflow-hidden shadow-xl max-w-md lg:max-w-full">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOeXQWuy1COG1OCEbMV4u--T6UiUl5s5VUfUOKzwXMcTNaNty1-VDBNEo1AvtTVvul4HfhE4j9NO-vnPtJ17ipsM5vRud4R0cdltssZB01KTutJZ1OTB-K3Exlh4FQ-hUvo55dnxIpBZhnXREaALxpHonvC9U0BoPbblKuSRPElNdhz6ewPs3-m50LV-lR1ZIjtYYVZjHo3Yppo1zBR5rMerbyrpl6yRZdNZ4nYnyh4pUNq-iukVkE6u8_vcvQUXeycayBXheA_ivG"
+              {/* <img
+                scr="/frustrate.png"
                 alt="Friends tracking money illustration"
                 className="w-full h-auto object-cover"
                 loading="lazy"
+              /> */}
+
+              <Image
+                src="/frustrate.png"
+                alt="SusuBox App — community savings made simple"
+                width={0}
+                height={0}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                className="w-full h-auto rounded-[3rem] shadow-md"
               />
             </div>
           </div>
-          
+
           {/* Right Column: Chat Mockup */}
           <div className="space-y-6">
             <div className="glass-card p-8 rounded-[2.5rem] bg-white shadow-sm border border-outline-variant/10">
@@ -53,7 +66,7 @@ export default function Problem() {
                 </div>
               </div>
             </div>
-            
+
             <div className="pt-4">
               <p className="font-headline text-2xl md:text-3xl font-black gold-text-gradient italic">
                 Sound familiar?
