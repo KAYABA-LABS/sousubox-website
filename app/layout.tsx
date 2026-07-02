@@ -13,7 +13,7 @@ const interSans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SusuBox | Social Finance Made Simple",
+  title: "SousuBox | Social Finance Made Simple",
   description: "A community saving app that manages your savings, groups and network. Transforming a traditional saving model into a digital, effortless experience that enforces trust with communities.",
 };
 

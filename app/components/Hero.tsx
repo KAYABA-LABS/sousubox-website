@@ -32,7 +32,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-5 pt-2">
             <button className="bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline font-bold hover:savio-shadow transition-all flex items-center gap-3 group shadow-2xl hover:bg-primary-container">
-              Get Started Free
+              Get Early Access
               <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
                 arrow_forward
               </span>

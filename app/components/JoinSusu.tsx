@@ -160,7 +160,7 @@ export default function JoinSusu() {
             href="#contact"
             className="inline-flex items-center gap-3 bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline font-black text-lg hover:brightness-110 transition-all shadow-xl group"
           >
-            Start Your Circle
+            Get Early Access
             <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
               arrow_forward
             </span>

@@ -48,7 +48,7 @@ export default function Navbar() {
               }`}
               id="logo-text"
             >
-              SusuBox
+              Sousu<span className="gold-text-gradient font-black">Box</span>
             </span>
           </div>
 
@@ -109,7 +109,7 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between border-b border-outline-variant/10 pb-4 mb-4">
             <span className="font-headline text-2xl font-extrabold text-primary tracking-tighter">
-              SusuBox
+              Sousu <span className="gold-text-gradient font-black">Box</span>
             </span>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
