@@ -8,34 +8,34 @@ export default function JoinSusu() {
       badge: "Traditional Susu style",
       image: "/circle.png",
       description:
-        "Take turns, win together. Here's how it works: a group of people agree on a fixed contribution — say $2,000 per month. Each month, every member contributes except the one whose turn it is to receive. That member gets the full pot. Next month, someone else receives. The cycle continues until everyone has had their turn. No banks. No interest. No debt. Just your community pooling resources so everyone gets a lump sum when they need it. Need more flexibility? Rotating circles also support shared slots (two members split one payout position) and double slots (one member takes two positions for a bigger payout).",
-      quote: "Maria got her payout in month 3 and finally took that trip home.",
+        "Take turns, win together. Here's how it works: a group of people agree on a fixed contribution — say GH ¢ 200 per week. Each week, every member contributes except the one whose turn it is to receive. That member gets the full pot amount. Next week, someone else receives. The cycle continues until everyone has had their turn. No banks. No interest. No debt. Just your community pooling resources so everyone gets a lump sum when they need it.",
+      quote: "Adjoa got her payout in week 3 and finally took that trip home.",
       icon: "loop",
       gradient: "from-[#006d43] to-[#59de9b]",
     },
     {
       id: "target",
       title: "Target",
-      badge: "Save toward a goal, together or solo",
+      badge: "Save toward a goal",
       image: "/target.png",
       description:
-        "Set a savings goal. $25,000 for a wedding, $10,000 for a group vacation, $7,000 for an emergency fund. Everyone contributes on a schedule: weekly, biweekly, or monthly. Track your progress together in real time as the goal gets closer. When the target is reached, the funds are distributed equally and everyone gets their share. Going solo? The full amount is yours. No interest. No debt. Just disciplined saving toward something that matters.",
-      quote: "Our circle funded the wedding of our dreams.",
-      quoteAuthor: "Amara & James",
+        "Set a savings goal. ¢ 25,000 for a wedding, ¢ 10,000 for a group vacation, ¢ 7,000 for an emergency fund. Contributes on a schedule: weekly, biweekly, or monthly. Track your progress in real time as the goal gets closer. When the target is reached, the funds are available for transfer to your checking account. The full amount is yours. No interest. No debt. Just disciplined saving toward something that matters.",
+      quote: "Was able to fund the wedding of our dreams.",
+      quoteAuthor: "Kojo",
       icon: "track_changes",
       gradient: "from-[#D4AF37] to-[#F3CF65]",
     },
-    {
-      id: "community",
-      title: "Community Fund",
-      badge: "Ongoing support, full transparency",
-      image: "/community.jpeg",
-      description:
-        "Built for communities that want to pool resources over time. Members contribute on a schedule. Anyone can donate through your shareable link — even people outside the circle. Every contribution is visible. Every disbursement is tracked. Add co-organizers to help manage. Support up to 200 members. The fund runs as long as you need it: for a neighborhood emergency fund, a mosque renovation, a school fundraiser, or anything your community cares about.",
-      quote: "Our neighborhood fund helped 3 families this year alone.",
-      icon: "diversity_3",
-      gradient: "from-[#003321] to-[#006d43]",
-    },
+    // {
+    //   id: "community",
+    //   title: "Community Fund",
+    //   badge: "Ongoing support, full transparency",
+    //   image: "/community.jpeg",
+    //   description:
+    //     "Built for communities that want to pool resources over time. Members contribute on a schedule. Anyone can donate through your shareable link — even people outside the circle. Every contribution is visible. Every disbursement is tracked. Add co-organizers to help manage. Support up to 200 members. The fund runs as long as you need it: for a neighborhood emergency fund, a mosque renovation, a school fundraiser, or anything your community cares about.",
+    //   quote: "Our neighborhood fund helped 3 families this year alone.",
+    //   icon: "diversity_3",
+    //   gradient: "from-[#003321] to-[#006d43]",
+    // },
   ];
 
   return (
@@ -136,7 +136,7 @@ export default function JoinSusu() {
                 </p>
 
                 {/* Quote */}
-                <div className="relative pl-8 border-l-4 border-primary/30 py-2">
+                {/* <div className="relative pl-8 border-l-4 border-primary/30 py-2">
                   <span className="absolute -top-1 left-2 material-symbols-outlined text-primary/20 text-4xl">
                     format_quote
                   </span>
@@ -148,7 +148,7 @@ export default function JoinSusu() {
                       — {circle.quoteAuthor}
                     </p>
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

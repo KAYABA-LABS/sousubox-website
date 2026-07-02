@@ -22,7 +22,7 @@ export default function Home() {
       <Advantages />
       <JoinSusu />
       <Features />
-      <Journey />
+      {/* <Journey /> */}
       <HowItWorks />
       <Pricing />
       <Testimonials />

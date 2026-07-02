@@ -23,7 +23,7 @@ export default function Navbar() {
     { label: "SOLUTIONS", href: "#solutions" },
     { label: "HOW IT WORKS", href: "#how-it-works" },
     { label: "PLANS", href: "#plans" },
-    { label: "PARTNERS", href: "#partners" },
+    // { label: "PARTNERS", href: "#partners" },
     { label: "TESTIMONIAL", href: "#testimonials" },
     { label: "ARTICLES", href: "#articles" },
     { label: "CONTACT US", href: "#contact" },

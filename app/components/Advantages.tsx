@@ -33,7 +33,7 @@ export default function Advantages() {
   ];
 
   return (
-    <section className="py-32 bg-white">
+    <section className="py-10 bg-white">
       <div className="max-w-container-max-width mx-auto px-6 md:px-margin-desktop">
         <div className="text-center mb-24 space-y-6">
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-black text-on-surface">

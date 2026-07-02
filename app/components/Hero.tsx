@@ -48,7 +48,7 @@ export default function Hero() {
           {/* Ambient glow layer */}
           <div className="absolute inset-0 rounded-[3rem] bg-primary/15 blur-3xl scale-95 pointer-events-none" />
 
-          <div className="relative w-full h-full floating-anim">
+          <div className="relative w-full lg:w-[115%] lg:-ml-[7.5%] h-full floating-anim">
             <Image
               src="/hero.png"
               alt="SusuBox App — community savings made simple"

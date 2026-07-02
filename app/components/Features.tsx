@@ -2,20 +2,17 @@ import Image from "next/image";
 
 export default function Features() {
   const checklists = [
-    { label: "Multiple Saving Vaults", icon: "savings" },
     { label: "Real Time Pool Statistics", icon: "bar_chart" },
     { label: "Automatic Payouts & Contributions", icon: "payments" },
-    { label: "Easy payment options with MOMO", icon: "phone_in_talk" },
-    { label: "Seamless Verification Process", icon: "verified" },
     { label: "Join Pools Easily", icon: "group_add" },
     { label: "Invite friends, gain reputation", icon: "stars" },
   ];
 
   const mechanisms = [
     {
-      title: "Auto-Pay",
-      description: "Set it once. Contributions happen on schedule, automatically.",
-      icon: "schedule_send",
+      title: "Multiple Saving Vaults",
+      description: "Create multiple savings vaults for different goals. Keep your finances organized and track progress for each goal separately.",
+      icon: "savings",
     },
     {
       title: "Smart Reminders",
@@ -23,14 +20,14 @@ export default function Features() {
       icon: "notifications_active",
     },
     {
-      title: "Shared Slots",
-      description: "Split a payout position with another member. Two people, one slot, shared payout.",
-      icon: "group_work",
+      title: "Simple Payments Options",
+      description: "Make deposit and withdrawal easy with mobile money, reduce friction and increase participation.",
+      icon: "phone_in_talk",
     },
     {
-      title: "Position Swap",
-      description: "Need your payout earlier? Request a swap with another member easily.",
-      icon: "swap_horiz",
+      title: "Seamless Verification",
+      description: "Verify your identity with you device and build trust with your community. Increase credibility and reduce fraud.",
+      icon: "verified",
     },
   ];
 
@@ -64,7 +61,7 @@ export default function Features() {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px flex-1 bg-white/10" />
             <span className="font-headline text-xs font-black uppercase tracking-[0.2em] text-primary-fixed/70">
-              Solutions
+              Features
             </span>
             <div className="h-px flex-1 bg-white/10" />
           </div>
@@ -77,11 +74,13 @@ export default function Features() {
 
               <div className="relative border-[#1a1a1a] bg-[#1a1a1a] border-[10px] rounded-[2.5rem] w-[260px] md:w-[300px] shadow-2xl">
                 <div className="rounded-[1.8rem] overflow-hidden w-full">
-                  <img
+                  <Image
                     className="w-full h-auto object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMI5EbUkEwkRlpOotJww8f2op9bE9DH7RrPYS9Tyekvp_vfFW-kf0Q3Tu74eq2poL9pgWWwKAYRCjhryFJIE9O09Y3jT59vhP5GRMk6AWWWYJQ8muOjgnp9JBFwDdnJIMKwWlZaorsy-Ig4QFgamquy-m5QcDj7EDi3wTj912DKlsrAya7rfdw5L5lc4a8ZiBSNBtGdU0CY43mcFEfqhTbS_8belLkK5N9fxijChkuactvTs2rRlM0uvm39FZ1vO1l0xedS5i0YDKM"
-                    alt="SusuBox Solutions Mockup"
-                    loading="lazy"
+                    src="/app-mockup.jpg"
+                    alt="SusuBox App – Market Women Circle"
+                    width={0}
+                    height={0}
+                    sizes="(max-width: 768px) 260px, 300px"
                   />
                 </div>
               </div>
@@ -97,7 +96,7 @@ export default function Features() {
                   </div>
                   <div>
                     <p className="font-headline text-[10px] text-white/50 font-bold uppercase tracking-widest">
-                      Annual Yield
+                      Trust Score
                     </p>
                     <p className="font-headline text-2xl font-black text-primary-fixed leading-none">
                       +12.4%
@@ -107,7 +106,7 @@ export default function Features() {
               </div>
 
               {/* Members badge */}
-              <div className="absolute -bottom-6 -left-4 md:-left-8 hidden sm:block">
+              {/* <div className="absolute -bottom-6 -left-4 md:-left-8 hidden sm:block">
                 <div className="flex items-center gap-3 px-5 py-4 rounded-2xl shadow-xl bg-white/10 backdrop-blur-md border border-white/15">
                   <div className="flex -space-x-2">
                     {["A", "B", "C"].map((l, i) => (
@@ -124,7 +123,7 @@ export default function Features() {
                     <span className="text-white font-bold">12k+</span> members
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Right: Copy + Checklist */}
@@ -214,7 +213,7 @@ export default function Features() {
             </div>
           </div>
 
-          <div className="mt-16 text-center">
+          {/* <div className="mt-16 text-center">
             <a
               href="#contact"
               className="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all duration-300 font-headline"
@@ -222,7 +221,7 @@ export default function Features() {
               See all features
               <span className="material-symbols-outlined">chevron_right</span>
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

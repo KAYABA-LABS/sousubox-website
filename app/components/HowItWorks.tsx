@@ -166,7 +166,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Side-by-Side Reference Preview on Big Screens (Visual Reference) */}
-        <div className="mt-24 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* <div className="mt-24 grid grid-cols-1 lg:grid-cols-3 gap-8">
           {flows.map((flow) => (
             <div
               key={flow.id}
@@ -203,7 +203,7 @@ export default function HowItWorks() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
