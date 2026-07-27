@@ -155,7 +155,7 @@ export default function Features() {
               </div>
 
               <a
-                href="#contact"
+                href="https://app.sousubox.com/"
                 className="inline-flex items-center gap-3 bg-primary-fixed text-deep-emerald px-8 py-4 rounded-2xl font-headline font-black hover:brightness-110 transition-all shadow-lg group"
               >
                 Get Early Access

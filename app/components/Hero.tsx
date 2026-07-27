@@ -30,17 +30,23 @@ export default function Hero() {
             experience that enforces trust with communities.
           </p>
 
-          <div className="flex flex-wrap gap-5 pt-2">
-            <button className="bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline font-bold hover:savio-shadow transition-all flex items-center gap-3 group shadow-2xl hover:bg-primary-container">
-              Get Early Access
-              <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-                arrow_forward
-              </span>
-            </button>
-            <button className="bg-white/10 text-white px-10 py-5 rounded-2xl font-headline font-bold border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm">
-              View Demo
-            </button>
-          </div>
+        <div className="flex flex-wrap gap-5 pt-2">
+          <a
+            href="https://app.sousubox.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline font-bold hover:savio-shadow transition-all flex items-center gap-3 group shadow-2xl hover:bg-primary-container"
+          >
+            Get Early Access
+            <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+              arrow_forward
+            </span>
+          </a>
+
+          <button className="bg-white/10 text-white px-10 py-5 rounded-2xl font-headline font-bold border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm">
+            Get InTouch
+          </button>
+        </div>
         </div>
 
         {/* Right Side: Full image, no cropping, no phone frame */}

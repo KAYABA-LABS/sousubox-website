@@ -130,7 +130,7 @@ export default function Navbar() {
               </a>
             ))}
           </div>
-          <div className="mt-auto border-t border-outline-variant/10 pt-6">
+          {/* <div className="mt-auto border-t border-outline-variant/10 pt-6">
             <a
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -138,7 +138,7 @@ export default function Navbar() {
             >
               Get Started
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
