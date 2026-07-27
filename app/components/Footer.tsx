@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2 space-y-8">
             <span className="font-headline text-3xl font-extrabold tracking-tighter text-white">
-              SusuBox
+              SousuBox
             </span>
             <p className="text-white/60 text-sm md:text-base leading-relaxed font-body max-w-xs">
               Transforming a traditional saving model into a digital, effortless experience
