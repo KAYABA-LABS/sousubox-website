@@ -157,7 +157,7 @@ export default function JoinSusu() {
         {/* Bottom CTA */}
         <div className="mt-32 text-center">
           <a
-            href="#contact"
+            href="https://app.sousubox.com/"
             className="inline-flex items-center gap-3 bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline font-black text-lg hover:brightness-110 transition-all shadow-xl group"
           >
             Get Early Access

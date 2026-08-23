@@ -77,7 +77,7 @@ export default function Features() {
                   <Image
                     className="w-full h-auto object-cover"
                     src="/app-mockup.jpg"
-                    alt="SusuBox App – Market Women Circle"
+                    alt="SousuBox App – Market Women Circle"
                     width={0}
                     height={0}
                     sizes="(max-width: 768px) 260px, 300px"
@@ -186,11 +186,15 @@ export default function Features() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 max-w-md">
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#006d43]/40 to-[#59de9b]/20" />
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#59de9b]/40 to-[#9ef4d0]/20" />
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#D4AF37]/40 to-[#F3CF65]/20" />
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-[#003321]/40 to-[#006d43]/20" />
+              <div className="max-w-md">
+                <Image
+                  width={0}
+                  height={0}
+                  src="/piggy.png"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  alt="Piggy bank with coins"
+                  className="w-full h-auto object-cover "
+                />
               </div>
             </div>
 

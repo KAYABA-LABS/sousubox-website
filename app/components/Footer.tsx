@@ -1,9 +1,9 @@
 export default function Footer() {
   const links = {
-    Product: ["Features", "Pricing", "How It Works", "Roadmap"],
-    Company: ["About Us", "Careers", "Press", "Partners"],
-    Community: ["Blog", "Forum", "Events", "Ambassadors"],
-    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+    Product: [ "How It Works", "Roadmap"],
+    Company: ["About Us", "Careers" ],
+    // Community: ["Blog", "Forum", "Events", "Ambassadors"],
+    Legal: ["Privacy Policy", "Terms of Service"],
   };
 
   return (
@@ -16,14 +16,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2 space-y-8">
             <span className="font-headline text-3xl font-extrabold tracking-tighter text-white">
-              SousuBox
+              Sousu<span className="gold-text-gradient font-black">Box</span>
             </span>
             <p className="text-white/60 text-sm md:text-base leading-relaxed font-body max-w-xs">
               Transforming a traditional saving model into a digital, effortless experience
               that enforces trust with communities.
             </p>
             {/* Social Icons */}
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               {["twitter", "linkedin", "facebook", "instagram"].map((s) => (
                 <a
                   key={s}
@@ -34,7 +34,7 @@ export default function Footer() {
                   <span className="material-symbols-outlined text-xl">link</span>
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Link Columns */}
@@ -61,7 +61,7 @@ export default function Footer() {
 
         {/* Bottom Row */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/30 font-body text-sm">
-          <p>© 2025 SusuBox. All rights reserved.</p>
+          <p>© 2025 SousuBox. All rights reserved.</p>
           <p>Built with trust, for communities.</p>
         </div>
       </div>

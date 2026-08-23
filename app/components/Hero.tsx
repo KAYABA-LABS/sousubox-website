@@ -57,7 +57,7 @@ export default function Hero() {
           <div className="relative w-full lg:w-[115%] lg:-ml-[7.5%] h-full floating-anim">
             <Image
               src="/hero.png"
-              alt="SusuBox App — community savings made simple"
+              alt="SousuBox App — community savings made simple"
               width={0}
               height={0}
               sizes="(max-width: 1024px) 100vw, 50vw"

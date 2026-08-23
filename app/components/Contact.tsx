@@ -49,10 +49,10 @@ export default function Contact() {
               <div>
                 <p className="font-headline font-black text-on-surface text-base">Email Us</p>
                 <a
-                  href="mailto:partnerships@susubox.com"
+                  href="mailto:infos@sousubox.com"
                   className="text-on-surface-variant hover:text-primary transition-colors font-medium text-sm md:text-base"
                 >
-                  partnerships@susubox.com
+                  infos@sousubox.com
                 </a>
               </div>
             </div>
@@ -68,7 +68,7 @@ export default function Contact() {
               </div>
               <h3 className="font-headline text-2xl font-black text-on-surface">Message Sent!</h3>
               <p className="text-on-surface-variant max-w-sm font-body">
-                Thank you for reaching out. A SusuBox community representative will contact you shortly.
+                Thank you for reaching out. A SousuBox community representative will contact you shortly.
               </p>
               <button
                 onClick={() => setStatus("idle")}

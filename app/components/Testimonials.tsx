@@ -1,7 +1,7 @@
 export default function Testimonials() {
   const reviews = [
     {
-      text: "SusuBox is the most robust implementation of ROSCA I've seen in any fintech app. The automation layer is flawless.",
+      text: "SousuBox is the most robust implementation of ROSCA I've seen in any fintech app. The automation layer is flawless.",
       name: "Alex Thompson",
       role: "Fintech Consultant",
       isFeatured: false,
@@ -13,7 +13,7 @@ export default function Testimonials() {
       isFeatured: true,
     },
     {
-      text: "Managing family savings used to be a headache. Now, SusuBox handles the reminders and payouts automatically. Incredible.",
+      text: "Managing family savings used to be a headache. Now, SousuBox handles the reminders and payouts automatically. Incredible.",
       name: "Dr. James Boateng",
       role: "Community Advocate",
       isFeatured: false,

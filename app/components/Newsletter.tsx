@@ -71,7 +71,7 @@ export default function Newsletter() {
 
               <p className="text-white/60 text-lg font-body leading-relaxed max-w-md">
                 Join 12,000+ members receiving curated insights on community savings,
-                ROSCA trends, and SusuBox updates — every week, zero noise.
+                ROSCA trends, and SousuBox updates — every week, zero noise.
               </p>
 
               {/* Perks grid */}

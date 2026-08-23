@@ -27,7 +27,7 @@ export default function Problem() {
 
               <Image
                 src="/frustrate.png"
-                alt="SusuBox App — community savings made simple"
+                alt="SousuBox App — community savings made simple"
                 width={0}
                 height={0}
                 sizes="(max-width: 1024px) 100vw, 50vw"

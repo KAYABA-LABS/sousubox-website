@@ -37,7 +37,7 @@ export default function Advantages() {
       <div className="max-w-container-max-width mx-auto px-6 md:px-margin-desktop">
         <div className="text-center mb-24 space-y-6">
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-black text-on-surface">
-            Why Communities Trust SusuBox
+            Why Communities Trust SousuBox
           </h2>
           <p className="text-on-surface-variant max-w-2xl mx-auto text-lg md:text-xl font-body">
             Engineered for security, built for social prosperity. Our features ensure every member succeeds.

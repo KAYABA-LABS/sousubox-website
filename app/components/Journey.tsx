@@ -59,7 +59,7 @@ export default function Journey() {
             <div className="relative border-gray-800 bg-gray-800 border-[14px] rounded-[3rem] h-[550px] md:h-[650px] w-[270px] md:w-[320px] shadow-2xl floating-anim">
               <div className="rounded-[2.2rem] md:rounded-[2.5rem] overflow-hidden w-full h-full bg-white animate-pulse-slow">
                 <img
-                  alt="SusuBox App Dashboard"
+                  alt="SousuBox App Dashboard"
                   className="w-full h-full object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZylr6XOeRgf75cYDdYi56yHD0BiH0LXynYOblY2buNPy8V_Ue1jyfen4Ipk5J5S1WtTUQPS6HI6ntoo4Ki5ZglSKIJeuGRmKRdAJsF7P7xQRmMM1yHb3yJDwqGu18TE1WPNUcAJTLgY3oNAvOh3GZwnOVYbyCK92w8zXKgJ9ZSmew_JPAjwq1hYOS-NsuqrG1wc0ZCchYfRPhMRhuVJcl0_7kwMUfSlVFpYH3gztQNP7g0VrIwqwr0v_zwXlkM1wB3Z8V826tyz_n"
                   loading="lazy"
