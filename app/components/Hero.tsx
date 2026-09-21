@@ -32,7 +32,7 @@ export default function Hero() {
 
         <div className="flex flex-wrap gap-5 pt-2">
           <a
-            href="https://app.sousubox.com/"
+            href="https://sousubox-pwa-react.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline font-bold hover:savio-shadow transition-all flex items-center gap-3 group shadow-2xl hover:bg-primary-container"
