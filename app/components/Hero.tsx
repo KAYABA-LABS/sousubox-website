@@ -32,8 +32,8 @@ export default function Hero() {
 
         <div className="flex flex-wrap gap-5 pt-2">
           <a
-            href="https://sousubox-pwa-react.vercel.app/"
-            target="_blank"
+            href="https://app.sousubox.xyz/onboarding"
+            {/* target="_blank" */}
             rel="noopener noreferrer"
             className="bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline font-bold hover:savio-shadow transition-all flex items-center gap-3 group shadow-2xl hover:bg-primary-container"
           >
@@ -43,9 +43,9 @@ export default function Hero() {
             </span>
           </a>
 
-          <button className="bg-white/10 text-white px-10 py-5 rounded-2xl font-headline font-bold border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm">
+          {/* <button className="bg-white/10 text-white px-10 py-5 rounded-2xl font-headline font-bold border border-white/20 hover:bg-white/20 transition-all backdrop-blur-sm">
             Get InTouch
-          </button>
+          </button> */}
         </div>
         </div>
 
