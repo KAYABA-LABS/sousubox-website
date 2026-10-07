@@ -52,7 +52,7 @@ export default function Contact() {
                   href="mailto:infos@sousubox.com"
                   className="text-on-surface-variant hover:text-primary transition-colors font-medium text-sm md:text-base"
                 >
-                  infos@sousubox.com
+                  hello@sousubox.xyz
                 </a>
               </div>
             </div>
