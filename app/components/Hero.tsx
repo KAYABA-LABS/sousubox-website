@@ -61,7 +61,7 @@ export default function Hero() {
               height={0}
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
-              className="w-full h-[400px] sm:h-[450px] lg:h-[500px] object-contain rounded-[3rem] shadow-md"
+              className="w-full h-[500px] sm:h-[450px] lg:h-[500px] object-contain rounded-[3rem] shadow-md"
             />
           </div>
         </div>
