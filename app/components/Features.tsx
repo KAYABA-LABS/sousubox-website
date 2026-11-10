@@ -158,7 +158,7 @@ export default function Features() {
                 href="https://app.sousubox.xyz/onboarding"
                 className="inline-flex items-center gap-3 bg-primary-fixed text-deep-emerald px-8 py-4 rounded-2xl font-headline font-black hover:brightness-110 transition-all shadow-lg group"
               >
-                Get Early Access
+                Get Started 
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
                   arrow_forward
                 </span>
