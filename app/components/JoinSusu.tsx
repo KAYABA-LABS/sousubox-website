@@ -160,7 +160,7 @@ export default function JoinSusu() {
             href="https://app.sousubox.xyz/onboarding"
             className="inline-flex items-center gap-3 bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline font-black text-lg hover:brightness-110 transition-all shadow-xl group"
           >
-            Get Early Access
+            Get Started 
             <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
               arrow_forward
             </span>
