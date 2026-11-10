@@ -8,12 +8,12 @@ export default function Hero() {
       <div className="container-fluid mx-auto px-6 md:px-margin-desktop w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center pt-24 pb-32">
         {/* Left Side: Copy */}
         <div className="space-y-10">
-          <div className="inline-flex items-center gap-3 px-5 py-1.5 rounded-full bg-white/5 border border-white/10">
+          {/* <div className="inline-flex items-center gap-3 px-5 py-1.5 rounded-full bg-white/5 border border-white/10">
             <span className="w-2.5 h-2.5 rounded-full bg-primary-fixed animate-pulse"></span>
             <span className="text-primary-fixed font-headline text-xs uppercase tracking-[0.15em] font-bold">
               The Next-Gen Financial Ecosystem
             </span>
-          </div>
+          </div> */}
 
           <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-white">
             Social finance made{" "}
